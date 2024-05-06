@@ -22,7 +22,7 @@ input{
     width: 100%;
     background-color: hsl(189, 41%, 97%);
     border-radius: 5px;
-    padding: .4rem .8rem;
+    padding: .6rem 1rem;
     outline: none;
     border: none;
     color: hsl(183, 100%, 15%);
@@ -75,6 +75,22 @@ label{
 .light{
     background-color: hsl(172, 67%, 45%);
 }
+
+
+.bill-amount, .__people{
+    direction: rtl;
+}
+
+.bills, .ppl{
+    position: relative;
+}
+
+.dollar-icon, .icon-person{
+    position: absolute;
+    left: 15px;
+    top: 6px;
+}
+
 
 label[for="bill-amount"],
 h4{
