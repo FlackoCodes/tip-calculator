@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: "Space Mono", monospace;
+    font-weight: 700;
+    font-style: normal;
+    display: grid;
+    place-content: center;
+    min-height: 100vh;
+    background-color: hsl(185, 41%, 84%);
+}
+
+input{
+    font-weight: 700;
+    width: 100%;
+    background-color: hsl(189, 41%, 97%);
+    border-radius: 5px;
+    padding: .4rem .8rem;
+    outline: none;
+    border: none;
+    color: hsl(183, 100%, 15%);
+    cursor: pointer;
+}
+
+input[type="text"]:focus{
+    outline: red;
+    border-color: hsl(172, 67%, 45%);
+}
+
+header{
+    text-align: center;
+    padding: 2rem 0;
+}
+
+label{
+    display: block;
+    text-align: left;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    background-color: hsl(0, 0%, 100%);
+    border-radius: 25px 25px 0 0;
+    padding: 1rem;
+}
+
+.btns{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.dark, .light{
+    border: none;
+    padding: .4rem .8rem;
+    font-weight: 700;
+    border-radius: 5px;
+    cursor: pointer;
+    
+}
+
+.dark{
+    background-color: hsl(183, 100%, 15%);
+    color: hsl(0, 0%, 100%);
+}
+
+.light{
+    background-color: hsl(172, 67%, 45%);
+}
+
+label[for="bill-amount"],
+h4{
+    margin-bottom: 5px;
+}
+
+label[for="bill-amount"],
+h4,
+.select-tip label{
+    color: hsl(186, 14%, 43%);
+}
+
+.select-tip label{
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+
+.tip-section{
+    padding: 1rem;
+    background-color: hsl(183, 100%, 15%);
+    margin: 20px 0;
+    border-radius: 10px;
+    color: white;
+}
+
+.tip-section p{
+    color: hsl(172, 67%, 45%);
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+
+.tip-amount, .total{
+    display: flex;
+    justify-content: space-between;
+    padding: .8rem 0;
+}
+
+small{
+    color: hsl(184, 14%, 56%);
+}
+
+.reset-btn{
+    width: 100%;
+    max-width: 100%;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: -1px;
+    padding: .6rem .8rem;
+    border-radius: 5px;
+    border: none;
+    background-color: hsl(172, 67%, 45%);
+    color: hsl(183, 100%, 15%);
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+@media screen and (min-width: 1024px) {
+    .container{
+        width: 65%;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        border-radius: 25px;
+        padding: 2rem;
+    }
+
+    .btns{
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .tip-section{
+        margin: 0;
+        padding-top: 1.5rem;
+
+    }
+
+    .total{
+        padding: 1.2rem 0;
+    }
+
+    .reset-btn{
+        width: 100%;
+        position: relative;
+        top: 50px;
+    }
+}
