@@ -72,15 +72,23 @@ label{
     color: hsl(0, 0%, 100%);
 }
 
+.dark:hover{
+    background-color: hsl(172, 67%, 45%);
+}
+
 .light{
     background-color: hsl(172, 67%, 45%);
 }
 
+.light:hover{
+    background-color: hsl(183, 100%, 15%);
+    color: hsl(0, 0%, 100%);
+}
 
 .bill-amount, .__people{
     direction: rtl;
 }
-
+ 
 .bills, .ppl{
     position: relative;
 }
@@ -139,8 +147,9 @@ span{
     color: red;
     font-size: .8rem;
     font-weight: 700;
-    display: block;
+    display: none;
 }
+
 
 small{
     color: hsl(184, 14%, 56%);
@@ -161,6 +170,18 @@ small{
     cursor: pointer;
 }
 
+.reset-btn:hover{
+    background-color: hsl(185, 41%, 84%);
+}
+
+.persons{
+    direction: rtl;
+}
+
+.persons::placeholder{
+    direction: ltr;
+}
+
 @media screen and (min-width: 1024px) {
     header{
         text-align: center;
@@ -168,7 +189,7 @@ small{
     }
 
     .container{
-        width: 65%;
+        width: 50%;
         margin: 0 auto;
         display: grid;
         grid-template-columns: repeat(2, 1fr);

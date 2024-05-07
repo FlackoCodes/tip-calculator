@@ -3,7 +3,7 @@ let billTotal = document.querySelector('.bill-amount');
 let fivePercent = document.querySelector('.five-per');
 let tenPercent = document.querySelector('.ten-per');
 let fifteenPercent = document.querySelector('.fifteen-per');
-let twnetyFivePercent = document.querySelector('.twentyfive-per');
+let twentyFivePercent = document.querySelector('.twentyfive-per');
 let fiftyPercent = document.querySelector('.fifty-per');
 let customPercent = document.querySelector('.persons');
 
@@ -12,7 +12,7 @@ let numberOfPeople = document.querySelector('.__people');
 let resetButton = document.querySelector('.reset-btn');
 
 let tipAmount = document.querySelector('.tip_amount');
-let totalPer = document.querySelector('.total-per');
+let totalPerPerson = document.querySelector('.total-per');
 
 
 
@@ -20,10 +20,9 @@ const TipPererson = ()=>{
     
 }
 
-
-fifteenPercent.addEventListener('click', () => {
+const calculateTip = (percentage)=>{
     let billAmount = billTotal.value
-    let numericValue = parseFloat(fifteenPercent.textContent.replace("$", ""));
+    let numericValue = parseFloat(percentage.textContent.replace("$", ""));
     let actualTip = numericValue / 100
     let tip = billAmount * actualTip
 
@@ -31,17 +30,19 @@ fifteenPercent.addEventListener('click', () => {
 
     let tipPer = tip/squad
 
-    if (squad <= 0) {
-        alert('No cant be zero')
-    }
+    if (squad === "" || squad<= 0) {
+console.log(2);    }
 
     tipAmount.textContent = `$${tip.toFixed(2)}`;
-    totalPer.textContent = `%${tipPer.toFixed(2)}`
-});
+    totalPerPerson.textContent = `$${tipPer.toFixed(2)}`
+}
 
 resetButton.addEventListener('click', ()=>{
     tipAmount.textContent = "0.00";
-    totalPer.textContent =  "0.00"
+    totalPerPerson.textContent =  "0.00";
+    billTotal.value = "";
+    numberOfPeople.value = "";
+    customInput.value = "";
 })
 
 const customInput = (event)=>{
@@ -49,21 +50,26 @@ const customInput = (event)=>{
     let actual = custom/100
 
     if (event.key =="Enter") {
-    let billAmount = billTotal.value
-    let tip = billAmount * actual
+        let billAmount = billTotal.value
+        let tip = billAmount * actual
 
-    let squad = parseInt(numberOfPeople.value)
+        let squad = parseInt(numberOfPeople.value)
 
-    let tipPer = tip/squad
+        let tipPer = tip/squad
+        
+        if (squad <= 0) {
+            console.log("number cant be zero");
+        }
 
-    if (squad <= 0) {
-        alert('No cant be zero')
-    }
-
-    tipAmount.textContent = `$${tip.toFixed(2)}`;
-    totalPer.textContent = `%${tipPer.toFixed(2)}`
+        tipAmount.textContent = `$${tip.toFixed(2)}`;
+        totalPerPerson.textContent = `%${tipPer.toFixed(2)}`;
     }
     
 }
 
-customPercent.addEventListener('keydown', customInput)
+customPercent.addEventListener('keydown', customInput);
+fivePercent.addEventListener('click', ()=> calculateTip(fivePercent));
+fifteenPercent.addEventListener('click', ()=> calculateTip(fifteenPercent));
+tenPercent.addEventListener('click', ()=> calculateTip(tenPercent));
+twentyFivePercent.addEventListener('click', ()=> calculateTip(twentyFivePercent));
+fiftyPercent.addEventListener('click', ()=> calculateTip(fiftyPercent));
