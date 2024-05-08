@@ -14,6 +14,8 @@ let resetButton = document.querySelector('.reset-btn');
 let tipAmount = document.querySelector('.tip_amount');
 let totalPerPerson = document.querySelector('.total-per');
 
+let displayError = document.querySelector('span')
+
 
 
 const reset = ()=>{
@@ -38,7 +40,12 @@ const calculateTip = (percentage)=>{
     if (squad && tipPer) {
         tipAmount.textContent = `$${tip.toFixed(2)}`;
         totalPerPerson.textContent = `$${tipPer.toFixed(2)}`
-    } else{
+    }  else if (squad === 0 || squad === ""){
+        numberOfPeople.classList.add('error');
+        displayError.classList.add('span-error');
+        reset()
+    }
+        else{
         reset()
     }
 

@@ -151,6 +151,13 @@ span{
     display: none;
 }
 
+.span-error{
+    display: block;
+}
+
+.error{
+    box-shadow: 0 0 0 2px red;
+}
 
 small{
     color: hsl(184, 14%, 56%);
