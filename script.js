@@ -16,8 +16,12 @@ let totalPerPerson = document.querySelector('.total-per');
 
 
 
-const TipPererson = ()=>{
-    
+const reset = ()=>{
+    tipAmount.textContent = "0.00";
+    totalPerPerson.textContent =  "0.00";
+    billTotal.value = "";
+    numberOfPeople.value = "";
+    customInput.value = "";
 }
 
 const calculateTip = (percentage)=>{
@@ -31,21 +35,26 @@ const calculateTip = (percentage)=>{
     let tipPer = tip/squad
 
     
-    if (squad <= 0 || squad === "") {
-        return;
+    if (squad && tipPer) {
+        tipAmount.textContent = `$${tip.toFixed(2)}`;
+        totalPerPerson.textContent = `$${tipPer.toFixed(2)}`
+    } else{
+        reset()
     }
 
-    tipAmount.textContent = `$${tip.toFixed(2)}`;
-    totalPerPerson.textContent = `$${tipPer.toFixed(2)}`
+    
 }
 
-resetButton.addEventListener('click', ()=>{
-    tipAmount.textContent = "0.00";
-    totalPerPerson.textContent =  "0.00";
-    billTotal.value = "";
-    numberOfPeople.value = "";
-    customInput.value = "";
-})
+// resetButton.addEventListener('click', ()=>{
+//     tipAmount.textContent = "0.00";
+//     totalPerPerson.textContent =  "0.00";
+//     billTotal.value = "";
+//     numberOfPeople.value = "";
+//     customInput.value = "";
+// })
+
+resetButton.addEventListener('click', reset)
+
 
 const customInput = (event)=>{
     let custom = parseFloat(customPercent.value).toFixed(2);
@@ -59,12 +68,14 @@ const customInput = (event)=>{
 
         let tipPer = tip/squad
         
-        if (squad <= 0 || squad === "") {
-            return;
+        if (tipPer && squad) {
+            tipAmount.textContent = `$${tip.toFixed(2)}`;
+            totalPerPerson.textContent = `$${tipPer.toFixed(2)}`;
+        } else{
+            reset()
         }
 
-        tipAmount.textContent = `$${tip.toFixed(2)}`;
-        totalPerPerson.textContent = `$${tipPer.toFixed(2)}`;
+        
     }
     
 }
