@@ -30,7 +30,10 @@ const calculateTip = (percentage)=>{
 
     let tipPer = tip/squad
 
-    console.log(`this is the full squad: ${squad}`);
+    
+    if (squad <= 0 || squad === "") {
+        return;
+    }
 
     tipAmount.textContent = `$${tip.toFixed(2)}`;
     totalPerPerson.textContent = `$${tipPer.toFixed(2)}`
@@ -56,8 +59,8 @@ const customInput = (event)=>{
 
         let tipPer = tip/squad
         
-        if (squad <= 0) {
-            console.log("number cant be zero");
+        if (squad <= 0 || squad === "") {
+            return;
         }
 
         tipAmount.textContent = `$${tip.toFixed(2)}`;
