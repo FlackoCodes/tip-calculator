@@ -52,13 +52,6 @@ const calculateTip = (percentage)=>{
     
 }
 
-// resetButton.addEventListener('click', ()=>{
-//     tipAmount.textContent = "0.00";
-//     totalPerPerson.textContent =  "0.00";
-//     billTotal.value = "";
-//     numberOfPeople.value = "";
-//     customInput.value = "";
-// })
 
 resetButton.addEventListener('click', reset)
 
